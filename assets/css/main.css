@@ -1,15 +1,31 @@
+html, body{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
 /* custome */
 
 #container{
-    margin: 100px auto;
-    width:800px;
+    margin: 20px auto;
     padding:20px;
 }
 
 .result{
-    background:#999999;
-    margin:0px auto;
-    width:700px;
+    background:#EFEFEF;
+    border: 1px dotted #BBB;
+    margin:10px auto;
+    width:450px;
+    padding:10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: center;
+    font-size:12px;
+}
+
+h2{
+    margin-top:0px;
+    font-size:14px;
+    text-align: center;
 }
 
 /* form */

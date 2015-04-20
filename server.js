@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   res.sendfile('./app/index.html');
 });
 
-app.use('/number', function(req, res) {
+app.use('/query', function(req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/json'});
   var timeout = false;
@@ -60,7 +60,7 @@ app.use('/number', function(req, res) {
         "fibonacci": {
           "time": fibTime,
           "result": -1,
-          "description": error//"The calculation for the fibonacci number timed out."
+          "description": error  //"The calculation for the fibonacci number timed out."
         }
       }
     }

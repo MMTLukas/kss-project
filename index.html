@@ -13,9 +13,9 @@
     </form>
     <div id="results">
         <div class="result" ng-repeat="result in results">
-            {{result.time}}
-            {{result.result}}
-            {{result.description}}
+            <h2>{{result.description}}</h2>
+            Result: {{result.result}}<br>
+            Duration: {{result.time}}
         </div>
     </div>
 </div>
