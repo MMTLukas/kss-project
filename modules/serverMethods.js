@@ -66,7 +66,6 @@ var isPrimeNumber = function(number)
 
 var nextHigherPrimeNumber = function(number){
   var tmp = number;
-  var compare;
   do{
     tmp++;
   }while(!isPrimeNumber(tmp));
