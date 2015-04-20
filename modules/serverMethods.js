@@ -1,4 +1,4 @@
-var timeoutTime = 200000000;
+var timeoutTime = 2000;
 
 var fib = function(x, time) {
   if (new Date().getTime() - time > timeoutTime) throw "Timeout";
@@ -69,9 +69,7 @@ var nextHigherPrimeNumber = function(number){
 
   do{
     tmp++;
-    check = isPrimeNumber(tmp);
-
-  }while(!check)
+  }while(isPrimeNumber(tmp))
 
   return tmp;
 }
