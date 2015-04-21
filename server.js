@@ -24,7 +24,11 @@ app.use('/query', function(req, res) {
       var fibNumber = serverMethods.fib(input, start);
       var squareNumber = serverMethods.squareRoot(input);
       var isPrimeNumber = serverMethods.isPrimeNumber(input);
+      var getNextPrimeNumber = serverMethods.nextHigherPrimeNumber(input);
+      var findNumberInPi = serverMethods.findNumberInPi(input)
       var primeFactors = serverMethods.getPrimeFactors(input);
+      var hex = serverMethods.decimalToHex(input);
+      var binary = serverMethods.decimalToBinary(input);
     } catch (e) {
       timeout = true;
       var error = e.message;
@@ -49,10 +53,30 @@ app.use('/query', function(req, res) {
           "result": isPrimeNumber,
           "description": "Is the Number a Prime Number"
         },
+        "Next Prime Number": {
+          "time": fibTime,
+          "result": getNextPrimeNumber,
+          "description": "The next Prime Number"
+        },
         "Prime Factors": {
           "time": fibTime,
           "result": primeFactors,
           "description": "The Prime Factors"
+        },
+        "Find Number in PI": {
+          "time": fibTime,
+          "result": findNumberInPi,
+          "description": "Search Number in PI"
+        },
+        "Binary notation": {
+          "time": fibTime,
+          "result": binary,
+          "description": "Number in binary notation"
+        },
+        "Hexadecimal notation": {
+          "time": fibTime,
+          "result": hex,
+          "description": "Number in hex notation"
         }
       }
     } else {

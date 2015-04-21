@@ -91,11 +91,21 @@ var findNumberInPI = function(number){
   return pi.indexOf(number.toString()) - 2;
 }
 
+function decimalToBinary(number){
+  return (number >>> 0).toString(2);
+}
+
+function decimalToHex(number){
+  return number.toString(16);
+}
 
 module.exports = {
   isPrimeNumber: isPrimeNumber,
   nextHigherPrimeNumber: nextHigherPrimeNumber,
   getPrimeFactors: getPrimeFactors,
   squareRoot: squareRoot,
-  fib: fib
+  fib: fib,
+  findNumberInPi: findNumberInPI,
+  decimalToBinary: decimalToBinary,
+  decimalToHex: decimalToHex
 }
