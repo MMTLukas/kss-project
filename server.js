@@ -19,22 +19,44 @@ app.use('/query', function(req, res) {
     var input = parseInt(req.query.number);
 
     var start = new Date().getTime();
-
+    var fibTime = 0;
+    var squareTime = 0;
+    var primeTime = 0;
+    var nextPrimeTime = 0;
+    var piTime = 0;
+    var primeFacTime = 0;
+    var hexTime = 0;
+    var binTime = 0;
+        
     try {
       var fibNumber = serverMethods.fib(input, start);
+      fibTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var squareNumber = serverMethods.squareRoot(input);
+      squareTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var isPrimeNumber = serverMethods.isPrimeNumber(input);
+      primeTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var getNextPrimeNumber = serverMethods.nextHigherPrimeNumber(input);
+      nextPrimeTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var findNumberInPi = serverMethods.findNumberInPi(input)
+      piTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var primeFactors = serverMethods.getPrimeFactors(input);
+      primeFacTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var hex = serverMethods.decimalToHex(input);
+      hexTime = new Date().getTime() - start;
+      start = new Date().getTime();
       var binary = serverMethods.decimalToBinary(input);
+      binTime = new Date().getTime() - start;
     } catch (e) {
       timeout = true;
       var error = e.message;
+      fibTime = new Date().getTime() - start;
     }
-
-    var fibTime = new Date().getTime() - start;
 
     if (!timeout) {
       var result = {
@@ -44,37 +66,37 @@ app.use('/query', function(req, res) {
           "description": "The n-th fibonacci number."
         },
         "Square Root": {
-          "time": fibTime,
+          "time": squareTime,
           "result": squareNumber,
-          "description": "The Square number"
+          "description": "The Square root"
         },
         "Prime Number": {
-          "time": fibTime,
+          "time": primeTime,
           "result": isPrimeNumber,
           "description": "Is the Number a Prime Number"
         },
         "Next Prime Number": {
-          "time": fibTime,
+          "time": nextPrimeTime,
           "result": getNextPrimeNumber,
           "description": "The next Prime Number"
         },
         "Prime Factors": {
-          "time": fibTime,
+          "time": primeFacTime,
           "result": primeFactors,
           "description": "The Prime Factors"
         },
         "Find Number in PI": {
-          "time": fibTime,
+          "time": piTime,
           "result": findNumberInPi,
           "description": "Search Number in PI"
         },
         "Binary notation": {
-          "time": fibTime,
+          "time": binTime,
           "result": binary,
           "description": "Number in binary notation"
         },
         "Hexadecimal notation": {
-          "time": fibTime,
+          "time": hexTime,
           "result": hex,
           "description": "Number in hex notation"
         }
@@ -84,7 +106,7 @@ app.use('/query', function(req, res) {
         "fibonacci": {
           "time": fibTime,
           "result": -1,
-          "description": error  //"The calculation for the fibonacci number timed out."
+          "description": error
         }
       }
     }

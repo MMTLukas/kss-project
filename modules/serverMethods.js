@@ -1,7 +1,10 @@
-var timeoutTime = 2000;
+var timeoutTime = 1000;
+var timeoutObject = {
+    "message": "The calculation for the fibonacci number timed out."    
+}
 
 var fib = function(x, time) {
-  if (new Date().getTime() - time > timeoutTime) throw "Timeout";
+  if (new Date().getTime() - time > timeoutTime) throw timeoutObject;
   if (x < 2) return x;
   else return fib(x-1, time) + fib(x-2, time);
 }
@@ -87,8 +90,10 @@ var calcPI = function(number){
 }
 
 var findNumberInPI = function(number){
-  var pi = calcPI(1000).toString();
-  return pi.indexOf(number.toString()) - 2;
+  var pi = calcPI(10000000).toString().replace('.', '');
+  console.log(pi);
+  console.log(number.toString());
+  return pi.indexOf(number.toString());
 }
 
 function decimalToBinary(number){
